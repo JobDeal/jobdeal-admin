@@ -1,0 +1,36 @@
+<mat-sidenav-container style="height: 100%;">
+  <mat-sidenav #sideNav style="width:250px;"
+               (close)="onClosed()">
+
+    <div class="container" style="height: 200px; background-image: linear-gradient(45deg, #20979d , #28eb8b); text-align: center; padding: 16px">
+      <div class="col-12 col-md-12" style="text-align: center; margin: auto; width: 100%; cursor: pointer" (click)="onNavClick('main/users')">
+        <img src="assets/white_header.png"  style="max-width: 120px; max-height: 80px; margin-bottom: 16px">
+      </div>
+      <div class="col-12">
+        <span style="color: white; font-size: 18px">{{user.name}}</span>
+      </div>
+      <div class="col-12 col-md-12" style="text-align: right; margin: auto; bottom: 0; width: 100%;">
+        <button mat-raised-button color="warn" style="width: 100%; bottom: 0; margin-top: 16px" (click)="onLogout($event)">Log Out</button>
+      </div>
+
+    </div>
+
+    <mat-list style="width: 100%">
+      <mat-list-item (click)="onNavClick('main/stat')" style="cursor: pointer">
+        <h4 matLine>Statistics</h4>
+        <mat-icon mat-list-icon style="width: auto; height: 50%; display: inline-block; vertical-align: middle">assessment</mat-icon>
+      </mat-list-item>
+
+    </mat-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" style="background-image: linear-gradient(45deg, #20979d , #28eb8b);">
+    <div class="col-4">
+      <mat-icon class="demo-toolbar-icon align-middle" style="cursor: pointer" (click)="sideNav.open()">menu</mat-icon>
+      <a (click)="onNavClick('main/users')">
+        <img src="assets/white_header.png" width="auto" height="30px" alt="" style="margin-left: 16px">
+      </a>
+    </div>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

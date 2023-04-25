@@ -1,0 +1,20 @@
+<div style="width: 100%; height: 100%; background-image: linear-gradient(45deg, #20979d , #28eb8b);">
+  <input #blur type="text" style="position: absolute; opacity: 0; height: 0; width: 0">
+  <div class="container col-12 offset-0 col-md-4 offset-md-4" style="padding-top: 32px">
+    <mat-card>
+      <div style="text-align: center">
+        <img src="assets/logo.png" class="col-6" style="padding: 24px">
+      </div>
+      <br>
+      <mat-form-field style="width: 100%">
+        <input type="text" matInput #emailInput placeholder="Email" (keyup.enter)="passwordInput.focus()"/>
+      </mat-form-field>
+      <mat-form-field style="width: 100%">
+        <input type="password" matInput #passwordInput placeholder="Password" (keyup.enter)="onLogin(emailInput.value, passwordInput.value, blur)"/>
+      </mat-form-field>
+      <br>
+      <br>
+      <button mat-raised-button color="primary" style="width: 100%" (click)="onLogin(emailInput.value, passwordInput.value, blur)">Login</button>
+    </mat-card>
+  </div>
+</div>

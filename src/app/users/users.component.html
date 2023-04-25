@@ -1,0 +1,79 @@
+<mat-card class="col-md-10 offset-md-1 col-12">
+
+  <mat-card class="col-12">
+    <div class="row">
+      <div class="col-3 offset-2">
+        <mat-form-field style="float: left; width: 100%">
+          <input matInput placeholder="E-Mail" >
+        </mat-form-field>
+      </div>
+
+      <div class="col-3">
+        <mat-form-field style="float: left; width: 100%">
+          <input matInput placeholder="Name" >
+        </mat-form-field>
+      </div>
+
+      <div class="col-2">
+        <button mat-raised-button color="primary" style="cursor: pointer; float: right; align-self: flex-end; width:100%"
+               >Search
+        </button>
+      </div>
+
+    </div>
+  </mat-card>
+
+  <br>
+
+<ngx-datatable
+  class="material striped"
+  [rows]="users"
+  [columnMode]="'force'"
+  [headerHeight]="50"
+  [footerHeight]="75"
+  [rowHeight]="50"
+  [scrollbarH]="true"
+  [loadingIndicator]="isLoading"
+  [scrollbarV]="false"
+  [limit]="100"
+  [messages]="messages">
+
+  <ngx-datatable-column sortable="false" prop="id" [width]="30">
+    <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+      <span>{{value}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Name" sortable="false" prop="name" [width]="60">
+    <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+      <span>{{value}} {{users[rowIndex].surname}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="E-Mail" sortable="false" prop="email" [width]="60">
+    <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+      <span>{{value}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Mobile" sortable="false" prop="mobile" [width]="120">
+    <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+      <span>{{value}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="City" sortable="false" prop="city" [width]="60">
+    <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+      <span>{{value}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column name="Created At" sortable="false" prop="createdAt" [width]="60">
+    <ng-template let-row="row" let-rowIndex="rowIndex" let-value="value" ngx-datatable-cell-template>
+      <span>{{value | date}}</span>
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable>
+
+</mat-card>
